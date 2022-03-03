@@ -20,12 +20,13 @@
   <body>
     <h1>Speedgame</h1>
     <div class="game">
-      <h5>Your score: <span id="score">0</span></h5>
+      <h5>Your score:</h5>
+      <p id="score">0</p>
       <div class="buttons">
-        <div class="button b1">1</div>
-        <div class="button b2">2</div>
-        <div class="button b3">3</div>
-        <div class="button b4">4</div>
+        <div id="btn1" class="button">1</div>
+        <div id="btn2" class="button">2</div>
+        <div id="btn3" class="button">3</div>
+        <div id="btn4" class="button">4</div>
       </div>
     </div>
     <button type="button" id="start">Start game</button>
@@ -33,9 +34,10 @@
     <div id="overlay">
       <div class="modal">
         <p>Your score was:</p>
-        <p id="score">0</p>
+        <p id="scoreEnd">0</p>
         <button type="button" id="close">Close</button>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

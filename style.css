@@ -18,7 +18,13 @@ h1 {
 
 h5 {
   font-size: 3rem;
-  margin: 5rem;
+  margin-top: 3rem;
+}
+
+#score {
+  margin: 1rem auto;
+  font-size: 3rem;
+  font-family: "Press Start 2P", cursive;
 }
 
 .game {
@@ -29,7 +35,7 @@ h5 {
 
 .buttons {
   display: flex;
-  margin: 1rem;
+  margin: 3rem;
 }
 
 .button {
@@ -37,7 +43,7 @@ h5 {
   width: 7rem;
   height: 7rem;
   background-color: rgb(126, 126, 126);
-  border: 0.1rem solid;
+  border: 0.2rem black solid;
   margin: 0.75rem;
   display: flex;
   justify-content: center;
@@ -45,6 +51,12 @@ h5 {
   font-family: "Press Start 2P", cursive;
   font-size: 32px;
   cursor: pointer;
+  pointer-events: none;
+}
+
+.button.active {
+  background-color: green;
+  border: 0.2rem white solid;
 }
 
 button {
@@ -70,7 +82,7 @@ button {
 .modal {
   background-color: white;
   width: 40vw;
-  height: 20vh;
+  min-height: 35vh;
   border-radius: 5px;
   border: 0.2rem solid black;
   position: relative;
@@ -80,16 +92,16 @@ button {
   align-items: center;
 }
 
+#scoreEnd {
+  margin: 1rem auto;
+  font-size: 3rem;
+  font-family: "Press Start 2P", cursive;
+}
+
 #close {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
   background-color: transparent;
   border: none;
-}
-
-#score {
-  margin: 1rem auto;
-  font-size: 2rem;
-  font-family: "Press Start 2P", cursive;
 }
