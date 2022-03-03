@@ -4,25 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- --- FONT START --- -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&family=Monofett&family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <!-- --- FONT END --- -->
+
     <link rel="stylesheet" href="style.css" />
     <title>Speedgame</title>
   </head>
   <body>
     <h1>Speedgame</h1>
     <div class="game">
-      <h5>Your score: 0</h5>
-      <div class="button b1"></div>
-      <div class="button b2"></div>
-      <div class="button b3"></div>
-      <div class="button b4"></div>
+      <h5>Your score: <span id="score">0</span></h5>
+      <div class="buttons">
+        <div class="button b1">1</div>
+        <div class="button b2">2</div>
+        <div class="button b3">3</div>
+        <div class="button b4">4</div>
+      </div>
     </div>
-    <button>Start Game</button>
-    <button>Stop Game</button>
+    <button type="button" id="start">Start game</button>
+    <button type="button" id="stop">Stop game</button>
+    <div id="overlay">
+      <div class="modal">
+        <p>Your score was:</p>
+        <p id="score">0</p>
+        <button type="button" id="close">Close</button>
+      </div>
+    </div>
   </body>
 </html>
