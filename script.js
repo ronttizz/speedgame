@@ -26,7 +26,10 @@ const startGame = () => {
   active = nextActive;
   console.log("active button: ", active);
   timer = setTimeout(startGame, speed);
-  speed = speed - 100;
+
+  if (score % 10 === 0) {
+    speed = speed - 100;
+  }
 
   function pickNew(active) {
     let nextActive = getRndInt(0, 3);
