@@ -5,10 +5,14 @@ const overlay = document.querySelector("#overlay");
 const closeButton = document.querySelector("#close");
 const scoreText = document.querySelector("#score");
 const scoreEnd = document.querySelector("#scoreEnd");
+const scoreEndText = document.querySelector("#scoreEndText");
 
 let active = 0;
 let score = 0;
-let speed = 2000;
+let speed = 2200;
+let clicked = false;
+let miss = 0;
+let missedEnd = false;
 
 const getRndInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -24,11 +28,17 @@ const startGame = () => {
   buttons[active].classList.remove("active");
 
   active = nextActive;
-  console.log("active button: ", active);
-  timer = setTimeout(startGame, speed);
+  clicked = false;
+  miss++;
 
-  if (score % 10 === 0) {
-    speed = speed - 100;
+  timer = setTimeout(startGame, speed);
+  if (miss > 3) {
+    missedEnd = true;
+    stopGame();
+  }
+
+  if (score !== 0 && score % 4 === 0) {
+    speed = speed - 200;
   }
 
   function pickNew(active) {
@@ -44,9 +54,24 @@ const startGame = () => {
 
 const stopGame = () => {
   clearTimeout(timer);
-  console.log(speed);
-
   scoreEnd.textContent = score;
+
+  if (score === 0) {
+    scoreEndText.textContent = "Did you even try?";
+  } else if (score > 0 && score < 9) {
+    scoreEndText.textContent = "Nice try!";
+  } else if (score > 9 && score < 19) {
+    scoreEndText.textContent = "Really good!";
+  } else if (score > 19 && score < 29) {
+    scoreEndText.textContent = "You are really good!";
+  } else if (score > 29 && score < 39) {
+    scoreEndText.textContent = "Almost insane!";
+  } else {
+    scoreEndText.textContent = "INSANE!";
+  }
+
+  if (missedEnd === true) {
+  }
 
   overlay.style.visibility = "visible";
 };
@@ -57,10 +82,12 @@ const reloadGame = () => {
 
 const clickedButton = (i) => {
   buttons[active].classList.remove("active");
+  miss = 0;
 
-  if (i === active) {
+  if (i === active && clicked !== true && !(miss === 3)) {
     score++;
     scoreText.textContent = score;
+    clicked = true;
   } else {
     stopGame();
   }

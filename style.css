@@ -42,7 +42,7 @@ h5 {
   border-radius: 50%;
   width: 7rem;
   height: 7rem;
-  background-color: rgb(126, 126, 126);
+  background-color: rgb(160, 160, 160);
   border: 0.2rem black solid;
   margin: 0.75rem;
   display: flex;
@@ -82,7 +82,7 @@ button {
 .modal {
   background-color: white;
   width: 40vw;
-  min-height: 35vh;
+  height: 15rem;
   border-radius: 5px;
   border: 0.2rem solid black;
   position: relative;
