@@ -13,7 +13,6 @@ let score = 0;
 let speed = 2000;
 let clicked = false;
 let miss = 0;
-let missedEnd = false;
 
 const getRndInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -34,7 +33,6 @@ const startGame = () => {
 
   timer = setTimeout(startGame, speed);
   if (miss > 3) {
-    missedEnd = true;
     stopGame();
   }
 
@@ -71,7 +69,7 @@ const stopGame = () => {
     scoreEndText.textContent = "INSANE!";
   }
 
-  if (missedEnd === true) {
+  if (miss > 3) {
     missed3.textContent = "Dang, you missed 3 in a row.";
   } else {
     missed3.textContent = "";
