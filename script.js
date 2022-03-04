@@ -6,10 +6,11 @@ const closeButton = document.querySelector("#close");
 const scoreText = document.querySelector("#score");
 const scoreEnd = document.querySelector("#scoreEnd");
 const scoreEndText = document.querySelector("#scoreEndText");
+const missed3 = document.querySelector("#missed3");
 
 let active = 0;
 let score = 0;
-let speed = 2200;
+let speed = 2000;
 let clicked = false;
 let miss = 0;
 let missedEnd = false;
@@ -71,6 +72,9 @@ const stopGame = () => {
   }
 
   if (missedEnd === true) {
+    missed3.textContent = "Dang, you missed 3 in a row.";
+  } else {
+    missed3.textContent = "";
   }
 
   overlay.style.visibility = "visible";
