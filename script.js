@@ -18,7 +18,36 @@ const getRndInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function () {
+    this.sound.play();
+  };
+  this.stop = function () {
+    this.sound.pause();
+  };
+}
+
+//  Music from <a href="https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=6008">Pixabay</a>
+let startSound = new sound("./sounds/KlaxonBeat.mp3");
+let stopSound = new sound("./sounds/negative_beeps-6008.mp3");
+
+const startGameMusic = () => {
+  startSound.play();
+};
+
+const stopGameMusic = () => {
+  startSound.stop();
+  stopSound.play();
+};
+
 const startGame = () => {
+  startGameMusic();
   let nextActive = pickNew(active);
   buttons.forEach((button) => (button.style.pointerEvents = "auto"));
   startButton.style.display = "none";
@@ -53,6 +82,7 @@ const startGame = () => {
 
 const stopGame = () => {
   clearTimeout(timer);
+  stopGameMusic();
   scoreEnd.textContent = score;
 
   if (score === 0) {
